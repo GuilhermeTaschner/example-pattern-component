@@ -11,7 +11,7 @@ export const InputRoot = forwardRef<ComponentRef<"div">, InputRootProps>((props 
       {...props}
       ref={ref}
       data-error={props["has-error"]}
-      className={cn("w-full space-y-2 group data-[error=true]:!text-red-400", props.className)}
+      className={cn("w-full text-white space-y-2 group data-[error=true]:!text-red-400", props.className)}
     />
   );
 });

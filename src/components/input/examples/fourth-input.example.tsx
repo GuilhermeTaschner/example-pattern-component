@@ -6,10 +6,10 @@ export function FourthInputExample() {
   const id = useId();
   return (
     <InputRoot has-error>
-      <InputLabel className="text-black" htmlFor={id}>
+      <InputLabel className="text-white" htmlFor={id}>
         NOME COMPLETO
       </InputLabel>
-      <InputDescription className="text-black">INFORME SEU NOME COMO ESTA NO DOCUMENTO OFICIAL.</InputDescription>
+      <InputDescription className="text-white">INFORME SEU NOME COMO ESTA NO DOCUMENTO OFICIAL.</InputDescription>
       <InputContent>
         <InputBox id={id} />
         <User />
