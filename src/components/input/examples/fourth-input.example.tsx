@@ -1,17 +1,15 @@
 import { InputBox, InputContent, InputDescription, InputError, InputLabel, InputRoot } from "@/components/input";
 import { User } from "lucide-react";
-import { useId } from "react";
 
 export function FourthInputExample() {
-  const id = useId();
   return (
-    <InputRoot has-error>
-      <InputLabel className="text-white" htmlFor={id}>
+    <InputRoot aria-invalid>
+      <InputLabel className="text-white" htmlFor="FourthInputExample">
         NOME COMPLETO
       </InputLabel>
       <InputDescription className="text-white">INFORME SEU NOME COMO ESTA NO DOCUMENTO OFICIAL.</InputDescription>
       <InputContent>
-        <InputBox id={id} />
+        <InputBox id="FourthInputExample" />
         <User />
       </InputContent>
       <InputError>O nome é obrigatório</InputError>

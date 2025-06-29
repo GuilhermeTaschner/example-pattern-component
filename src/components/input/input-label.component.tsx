@@ -1,7 +1,12 @@
 import { cn } from "@/utils/cn.utils";
-import { ComponentProps, ComponentRef, forwardRef } from "react";
+import { ComponentProps } from "react";
 
-export const InputLabel = forwardRef<ComponentRef<"label">, ComponentProps<"label">>((props, ref) => {
-  if (!props.children) return null;
-  return <label {...props} ref={ref} className={cn("font-semibold select-none", props.className)} />;
-});
+export const InputLabel = (props: ComponentProps<"label">) => {
+  return (
+    <label
+      {...props}
+      aria-hidden={!props.children}
+      className={cn("font-semibold aria-hidden:hidden select-none", props.className)}
+    />
+  );
+};

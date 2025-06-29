@@ -1,17 +1,12 @@
 import { cn } from "@/utils/cn.utils";
-import { ComponentProps, ComponentRef, forwardRef } from "react";
+import { ComponentProps } from "react";
 
-interface InputRootProps extends ComponentProps<"div"> {
-  "has-error"?: boolean;
-}
-
-export const InputRoot = forwardRef<ComponentRef<"div">, InputRootProps>((props = { "has-error": false }, ref) => {
+export const InputRoot = (props: ComponentProps<"div">) => {
   return (
     <div
       {...props}
-      ref={ref}
-      data-error={props["has-error"]}
-      className={cn("w-full text-white space-y-2 group data-[error=true]:!text-red-400", props.className)}
+      data-error={props["aria-invalid"]}
+      className={cn("w-full text-white group aria-invalid:!text-red-400", props.className)}
     />
   );
-});
+};

@@ -1,7 +1,12 @@
 import { cn } from "@/utils/cn.utils";
-import { ComponentProps, ComponentRef, forwardRef } from "react";
+import { ComponentProps } from "react";
 
-export const InputError = forwardRef<ComponentRef<"span">, ComponentProps<"span">>((props, ref) => {
-  if (!props.children) return null;
-  return <span {...props} ref={ref} className={cn("font-light text-xs select-none", props.className)} />;
-});
+export const InputError = (props: ComponentProps<"span">) => {
+  return (
+    <span
+      {...props}
+      aria-hidden={!props.children}
+      className={cn("mt-2 font-light aria-hidden:hidden text-xs select-none", props.className)}
+    />
+  );
+};
