@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# 🧩 Pattern Components - Input Example
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto tem como objetivo demonstrar **como estruturar e organizar componentes reutilizáveis utilizando o padrão de componentização (Pattern Components)** em aplicações React (com TypeScript).  
+A aplicação gira em torno de um único exemplo prático: **um componente de input totalmente modularizado**.
 
-Currently, two official plugins are available:
+## 📁 Estrutura do Projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+└── components/
+    └── input/
+        ├── examples/                # Exemplos variados de uso do Input
+        │   ├── first-input.example.tsx
+        │   ├── second-input.example.tsx
+        │   └── ... até o oitavo
+        ├── input-box.component.tsx
+        ├── input-content.component.tsx
+        ├── input-description.component.tsx
+        ├── input-error.component.tsx
+        ├── input-label.component.tsx
+        ├── input-root.component.tsx
+        ├── input.component.tsx      # Componente principal que agrega todos os subcomponentes
+        └── index.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 🧱 Componentes do Input
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Cada parte do input é um componente separado, seguindo o princípio de **Single Responsibility**:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- `input-root.component.tsx`: wrapper raiz, responsável pela estrutura geral.
+- `input-label.component.tsx`: componente de label associado ao input.
+- `input-content.component.tsx`: onde o input em si é renderizado.
+- `input-error.component.tsx`: exibição de mensagens de erro.
+- `input-description.component.tsx`: descrição adicional (acessibilidade ou dicas).
+- `input-box.component.tsx`: encapsula o input com estilos e lógica extra, se necessário.
+- `input.component.tsx`: composição final de todos os subcomponentes em um único componente de input.
+
+### 🧪 Pasta `examples/`
+
+Contém **demonstrações práticas e variações do componente `Input`**, como:
+
+- Primeiro input básico (`first-input.example.tsx`)
+- Inputs com descrição, erro, label customizada, etc.
+- Até oito variações, cobrindo diferentes casos de uso.
+
+Essa abordagem ajuda a ilustrar **como escalar um componente reutilizável** sem perder a modularidade.
+
+## 💡 Objetivo
+
+O propósito do projeto é:
+
+- Demonstrar como aplicar **Pattern Components** na prática.
+- Servir como referência para componentização escalável.
+- Reforçar boas práticas de composição e reutilização de UI.
+
+## 🚀 Como rodar
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/GuilhermeTaschner/example-pattern-component.git
+   ```
+
+2. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
+
+3. Rode o projeto:
+   ```bash
+   pnpm dev
+   ```
+
+---
+
+## ✍️ Autor
+
+Feito com foco educacional por [Guilherme Taschner](https://www.linkedin.com/in/guilherme-taschner-4b86a9248/).
